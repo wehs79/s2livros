@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark" style="color:white">
+	<div class="container-fluid">
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<a style="color: white" class="nav-link lead" href="/"><strong>🤝 S2 LIVROS 💙</strong></a>
+			</li>
+			<li class="nav-item dropdown">
+				<a style="color: white" class="nav-link lead dropdown-toggle" data-bs-toggle="dropdown" href="#">Livros</a>
+				<ul class="dropdown-menu">
+					<li class="lead"><a class="dropdown-item" href="/adicionarLivro">Adicionar novo</a></li>
+					<li class="lead"><a class="dropdown-item" href="/listarLivros">Listar cadastrados</a></li>
+					<li class="lead"><a class="dropdown-item" href="/listarEmprestados">Listar emprestados</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a style="color: white" class="nav-link lead dropdown-toggle" data-bs-toggle="dropdown" href="#">Outros</a>
+				<ul class="dropdown-menu">
+					<li class="lead"><a class="dropdown-item" href="/lixeira">Lixeira</a></li>
+					<li class="lead"><a class="dropdown-item" href="/sobre">Sobre o sistema</a></li>
+				</ul>
+			</li>
+		</ul>
+		<form class="d-flex" action="/livro/" method="get">
+			<input class="form-control me-2" type="text" name="isbn" placeholder="Busca livro por ISBN">
+			<button class="btn btn-primary" type="submit">Buscar</button>
+		</form>
+	</div>
+</nav>

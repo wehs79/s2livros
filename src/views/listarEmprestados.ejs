@@ -1,0 +1,43 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+<button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button><br>
+<hr><br>
+<h1 class="display-2">📃 Livros emprestados</h1><br>
+<table class="table">
+  <tr>
+    <th class="lead"><strong>Título</strong></th>
+    <th class="lead"><strong>Autor</strong></th>
+    <th class="lead"><strong>Emprestado para</strong></th>
+    <th class="lead"><strong>Emprestado em</strong></th>
+    <th class="lead"><strong>Devolver em</strong></th>
+    <th class="lead" style="text-align: center;"><strong>Detalhes</strong></th>
+    <th class="lead" style="text-align: center;"><strong>Devolver</strong></th>
+  </tr>
+  <% livros.forEach(livro => { %>
+  <tr>
+    <td class="lead"><%= livro.titulo %></td>
+    <td class="lead"><%= livro.autor %></td>
+    <td class="lead"><%= livro.emprestadoNome %></td>
+    <td class="lead"><%= livro.emprestadoData.toLocaleDateString() %></td>
+    <td class="lead"><%= livro.emprestadoPrazo.toLocaleDateString() %></td>    
+    <td class="lead" style="text-align: center;"><a href="livro/?isbn=<%= livro.isbn %>" style="text-decoration: none;">📘</td>
+    <td class="lead" style="text-align: center;"><a href="/cadastrarDevolucao/<%= livro.isbn %>" style="text-decoration: none;">💙</td>
+  </tr>
+  <% }); %>
+</table>
+</div>
+<script>
+function calcularDiferencaEmDias(data1, data2) {
+  if (!(data1 instanceof Date)) {
+    data1 = new Date(data1);
+  }
+  if (!(data2 instanceof Date)) {
+    data2 = new Date(data2);
+  }
+  const diferencaEmMilissegundos = Math.abs(data2 - data1);
+  const umDiaEmMilissegundos = 1000 * 60 * 60 * 24;
+  const diferencaEmDias = Math.floor(diferencaEmMilissegundos / umDiaEmMilissegundos);
+  return diferencaEmDias;
+}
+</script>

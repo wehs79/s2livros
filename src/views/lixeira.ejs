@@ -1,0 +1,30 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+<button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button><br>
+<hr><br>
+<h1 class="display-2">🗑️ Lixeira</h1><br>
+<table class="table">
+  <tr>
+    <th class="lead"><strong>Título</strong></th>
+    <th class="lead"><strong>Autor</strong></th>
+    <th class="lead"><strong>Editora</strong></th>
+    <th class="lead"><strong>Ano</strong></th>
+    <th class="lead"><strong>Assunto</strong></th>
+	<th class="lead" style="text-align: center;"><strong>Reciclar</strong></th>
+	<th class="lead" style="text-align: center;"><strong>Eliminar</strong></th>
+  </tr>
+  <% livros.forEach(livro => { %>
+  <tr>
+    <td class="lead"><%= livro.titulo %></td>
+    <td class="lead"><%= livro.autor %></td>
+    <td class="lead"><%= livro.editora %></td>
+    <td class="lead"><%= livro.ano %></td>
+    <td class="lead"><%= livro.assunto %></td>
+	<td class="lead" style="text-align: center;"><a href="/restaurar/<%= livro.isbn %>" style="text-decoration: none;">♻️</a></td>
+	<td class="lead" style="text-align: center;"><a href="/eliminar/<%= livro.isbn %>" style="text-decoration: none;">💥</a></td>
+  </tr>
+  <% }); %>
+</table>
+</div>
+

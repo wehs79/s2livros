@@ -1,0 +1,101 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+  <button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+  <a href="/excluirLivro/<%= livro.isbn %>" class="btn btn-primary">Excluir</a>
+  <hr><br>
+  <h1 class="display-2">📖 Editar livro</h1><br>
+  <form action="/editarLivro/<%= livro.isbn %>" method="post">
+    <div class="mb-3 mt-3">
+      <label for="isbn" class="form-label lead">ISBN:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="isbn" name="isbn" value="<%= livro.isbn %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="titulo" class="form-label lead">Título:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="titulo" name="titulo" value="<%= livro.titulo %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="tituloOriginal" class="form-label lead">Título original:</label>
+      <input type="text" class="form-control" id="tituloOriginal" name="tituloOriginal" value="<%= livro.tituloOriginal %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="subtitulo" class="form-label lead">Subtítulo:</label>
+      <input type="text" class="form-control" id="subtitulo" name="subtitulo" value="<%= livro.subtitulo %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="subtituloOriginal" class="form-label lead">Subtítulo original:</label>
+      <input type="text" class="form-control" id="subtituloOriginal" name="subtituloOriginal" value="<%= livro.subtituloOriginal %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="autor" class="form-label lead">Autor:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="autor" name="autor" value="<%= livro.autor %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="edicao" class="form-label lead">Edição:</label>
+      <input type="text" class="form-control" id="edicao" name="edicao" value="<%= livro.edicao %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="editora" class="form-label lead">Editora:</label>
+      <input type="text" class="form-control" id="editora" name="editora" value="<%= livro.editora %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="cidade" class="form-label lead">Cidade:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="cidade" name="cidade" value="<%= livro.cidade %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="colecao" class="form-label lead">Coleção:</label>
+      <input type="text" class="form-control" id="colecao" name="colecao" value="<%= livro.colecao %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="volume" class="form-label lead">Volume:</label>
+      <input type="text" class="form-control" id="volume" name="volume" value="<%= livro.volume %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="assunto" class="form-label lead">Assunto:</label> <span style="color: red">*</span>
+      <select class="form-select" id="assunto" name="assunto" required>
+        <option value="<%= livro.assunto %>"><%= livro.assunto %></option>
+        <option value="Conhecimento geral">Conhecimento geral</option>
+        <option value="Filosofia e psicologia">Filosofia e psicologia</option>
+        <option value="Religião">Religião</option>
+        <option value="Ciências sociais">Ciências sociais</option>
+        <option value="Línguas">Línguas</option>
+        <option value="Ciências naturais e matemática">Ciências naturais e matemática</option>
+        <option value="Tecnologia">Tecnologia</option>
+        <option value="Artes e recreação">Artes e recreação</option>
+        <option value="Literatura">Literatura</option>
+        <option value="História e geografia">História e geografia</option>
+      </select>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="tradutor" class="form-label lead">Tradutor:</label>
+      <input type="text" class="form-control" id="tradutor" name="tradutor" value="<%= livro.tradutor %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="revisor" class="form-label lead">Revisor:</label>
+      <input type="text" class="form-control" id="revisor" name="revisor" value="<%= livro.revisor %>">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="idioma" class="form-label lead">Idioma:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="idioma" name="idioma" value="<%= livro.idioma %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="ano" class="form-label lead">Ano:</label> <span style="color: red">*</span>
+      <input type="number" class="form-control" id="ano" name="ano" value="<%= livro.ano %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="paginas" class="form-label lead">Páginas:</label> <span style="color: red">*</span>
+      <input type="number" class="form-control" id="paginas" name="paginas" value="<%= livro.paginas %>" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="resumo" class="form-label lead">Resumo:</label>
+      <textarea class="form-control" rows="5" id="resumo" name="resumo"><%= livro.resumo %></textarea> 
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="custo" class="form-label lead">Custo (R$):</label>
+      <input type="number" class="form-control" id="custo" name="custo" step="0.01" min="0" pattern="[0-9]+(\,[0-9]{1,2})?" title="00,00" value="<%= livro.custo %>">
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">Editar Livro</button>
+  </form>
+  <br><br>
+</div>

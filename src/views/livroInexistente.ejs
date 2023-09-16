@@ -1,0 +1,9 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+	<button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+	<hr><br>
+	<h1 class="display-2">⛔ Você não possui um livro cadastrado com o ISBN <%= livro %>.</h1>
+	<br>
+	<p class="lead">Acesse o site da <a href="https://www.amazon.com.br/s?k=<%= livro %>" target="_blank">Amazon</a> para verificar se o livro existe e está disponível para compra.</p>
+</div>

@@ -1,0 +1,28 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+<button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button><br>
+<hr><br>
+<h1 class="display-2">💙 Cadastrar empréstimo</h1><br>
+<form action="/cadastrarEmprestimo/<%= livro.isbn %>" method="post">
+	<div class="mb-3 mt-3">
+		<label for="isbn" class="form-label">ISBN:</label> <span style="color: red">*</span>
+		<input type="text" class="form-control" id="isbn" name="isbn" value="<%= livro.isbn %>" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+		<label for="emprestadoNome" class="form-label">Emprestar para (nome):</label> <span style="color: red">*</span>
+		<input type="text" class="form-control" id="emprestadoNome" name="emprestadoNome" required>
+    </div>
+    <div class="mb-3 mt-3">
+		<label for="emprestadoData" class="form-label">Data do empréstimo:</label> <span style="color: red">*</span>
+		<input type="date" class="form-control" id="emprestadoData" name="emprestadoData" required>
+    </div>
+    <div class="mb-3 mt-3">
+		<label for="emprestadoPrazo" class="form-label">Data prevista para devolução:</label> <span style="color: red">*</span>
+		<input type="date" class="form-control" id="emprestadoPrazo" name="emprestadoPrazo" required>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">Cadastrar empréstimo</button>
+</form>
+<br><br>
+</div>

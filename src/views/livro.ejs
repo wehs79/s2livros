@@ -1,0 +1,44 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+  <button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+  <% if (livro.excluido == 1) { %>
+    <a href="/restaurar/<%= livro.isbn %>" class="btn btn-primary">Reciclar</a>
+  <% } else { %>
+    <a href="/editarLivro/<%= livro.isbn %>" class="btn btn-primary">Editar</a>
+    <a href="/excluirLivro/<%= livro.isbn %>" class="btn btn-primary">Excluir</a>
+    <% if (livro.emprestado == 0) { %>
+      <a href="/cadastrarEmprestimo/<%= livro.isbn %>" class="btn btn-success">Emprestar</a>
+    <% } else { %>
+      <a href="/cadastrarDevolucao/<%= livro.isbn %>" class="btn btn-success">Devolver</a>
+    <% } %>
+  <% } %>
+  <hr><br>
+  <h1 class="display-2">📖 <%= livro.titulo %></h1>
+  <p class="display-6"><%= livro.tituloOriginal %></p>
+  <h1 class="display-5"><%= livro.subtitulo %></h1>
+  <p class="display-6"><%= livro.subtituloOriginal %></p>
+  <hr>
+  <% if (livro.excluido == 1) { %>
+    <p class="lead" style="color: red; font-weight: bold;">🗑️ Este livro está na lixeira.</p>
+  <% } %>
+  <% if (livro.emprestado == 1) { %>
+    <p class="lead" style="color: blue; font-weight: bold;">🤝 Este livro está emprestado para <%= livro.emprestadoNome %> 💙</p>
+  <% } %>
+  <p class="lead"><strong>ISBN:</strong> <%= livro.isbn %></p>
+  <p class="lead"><strong>Autor:</strong> <%= livro.autor %></p>
+  <p class="lead"><strong>Edição:</strong> <%= livro.edicao %></p>
+  <p class="lead"><strong>Editora:</strong> <%= livro.editora %></p>
+  <p class="lead"><strong>Cidade:</strong> <%= livro.cidade %></p>
+  <p class="lead"><strong>Coleção:</strong> <%= livro.colecao %></p>
+  <p class="lead"><strong>Volume:</strong> <%= livro.volume %></p>
+  <p class="lead"><strong>Assunto:</strong> <%= livro.assunto %></p>
+  <p class="lead"><strong>Tradutor:</strong> <%= livro.tradutor %></p>
+  <p class="lead"><strong>Revisor:</strong> <%= livro.revisor %></p>
+  <p class="lead"><strong>Idioma:</strong> <%= livro.idioma %></p>
+  <p class="lead"><strong>Ano:</strong> <%= livro.ano %></p>
+  <p class="lead"><strong>Páginas:</strong> <%= livro.paginas %></p>
+  <p class="lead"><strong>Resumo:</strong> <%= livro.resumo %></p>
+  <p class="lead"><strong>Custo (R$):</strong> <%= livro.custo %></p>
+  <br><br><br><br>
+</div>

@@ -1,0 +1,99 @@
+<%- include('./templates/header.ejs') %>
+<%- include('./templates/navbar.ejs') %>
+<div class="container mt-4">
+  <button type="button" class="btn btn-secondary" onclick="window.history.back();">Voltar</button><br>
+  <hr><br>
+  <h1 class="display-2">📖 Adicionar livro</h1><br>
+  <form action="/adicionarLivro" method="post">
+    <div class="mb-3 mt-3">
+      <label for="isbn" class="form-label">ISBN:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="isbn" name="isbn" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="titulo" class="form-label">Título:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="titulo" name="titulo" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="tituloOriginal" class="form-label">Título original:</label>
+      <input type="text" class="form-control" id="tituloOriginal" name="tituloOriginal">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="subtitulo" class="form-label">Subtítulo:</label>
+      <input type="text" class="form-control" id="subtitulo" name="subtitulo">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="subtituloOriginal" class="form-label">Subtítulo original:</label>
+      <input type="text" class="form-control" id="subtituloOriginal" name="subtituloOriginal">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="autor" class="form-label">Autor:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="autor" name="autor" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="edicao" class="form-label">Edição:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="edicao" name="edicao" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="editora" class="form-label">Editora:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="editora" name="editora" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="cidade" class="form-label">Cidade:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="cidade" name="cidade" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="colecao" class="form-label">Coleção:</label>
+      <input type="text" class="form-control" id="colecao" name="colecao">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="volume" class="form-label">Volume:</label>
+      <input type="text" class="form-control" id="volume" name="volume">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="assunto" class="form-label">Assunto:</label> <span style="color: red">*</span>
+      <select class="form-select" id="assunto" name="assunto" required>
+        <option value="Conhecimento geral">Conhecimento geral</option>
+        <option value="Filosofia e psicologia">Filosofia e psicologia</option>
+        <option value="Religião">Religião</option>
+        <option value="Ciências sociais">Ciências sociais</option>
+        <option value="Línguas">Línguas</option>
+        <option value="Ciências naturais e matemática">Ciências naturais e matemática</option>
+        <option value="Tecnologia">Tecnologia</option>
+        <option value="Artes e recreação">Artes e recreação</option>
+        <option value="Literatura">Literatura</option>
+        <option value="História e geografia">História e geografia</option>
+      </select>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="tradutor" class="form-label">Tradutor:</label>
+      <input type="text" class="form-control" id="tradutor" name="tradutor">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="revisor" class="form-label">Revisor:</label>
+      <input type="text" class="form-control" id="revisor" name="revisor">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="idioma" class="form-label">Idioma:</label> <span style="color: red">*</span>
+      <input type="text" class="form-control" id="idioma" name="idioma" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="ano" class="form-label">Ano:</label> <span style="color: red">*</span>
+      <input type="number" class="form-control" id="ano" name="ano" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="paginas" class="form-label">Páginas:</label> <span style="color: red">*</span>
+      <input type="number" class="form-control" id="paginas" name="paginas" required>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="resumo">Resumo:</label>
+      <textarea class="form-control" rows="5" id="resumo" name="resumo"></textarea> 
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="custo" class="form-label">Custo (R$):</label>
+      <input type="number" class="form-control" id="custo" name="custo" step="0.01" min="0" pattern="[0-9]+(\,[0-9]{1,2})?" title="00,00">
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">Adicionar Livro</button>
+  </form>
+  <br><br>
+</div>
